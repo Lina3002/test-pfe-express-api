@@ -1,16 +1,39 @@
 
-// a list of users sorted by username.
-// username must be unique in the list.
-const users = [{ id: 'bf745dd5-43bd-42b0-bf7d-25a4465a8134', username: 'bob', age: 20 }];
+const users = [{ id: 'user001', username: 'aitbrahim',age: 22},
+               { id: 'user002', username: 'lina',age: 21}];
 
-// addUser inserts newUser in the user list.
 const addUser = (newUser) => {
-    // TO IMPLEMENT
+    users.push(newUser);
+    users.sort((a, b) => a.username.localeCompare(b.username));
+    return newUser;
 }
 
-// getUsers returns a copy of the users.
-const getUsers = () => {
-    // TO IMPLEMENT
+const getUserByID = (UserID) => {
+    return users.find(user => user.id === UserID)
+    
 }
 
-// ANOTHER FUNCTIONS COULD BE NECESSARY
+const getUserByUsername = (UserName) => {
+    return users.find(user => user.username === UserName)
+}
+
+const updateUserByID = (UserID, newInfo) => {
+    
+}
+
+const deleteUserByID = (UserID) => {
+    
+}
+
+const listUsers_filterByAge = (minAge, maxAge) => {
+    
+}
+
+module.exports = {
+    addUser,
+    getUserByID,
+    getUserByUsername,
+    updateUserByID,
+    deleteUserByID,
+    listUsers_filterByAge
+}
