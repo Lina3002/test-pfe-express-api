@@ -21,9 +21,13 @@ const getUserByUsername = (UserName) => {
 
 const updateUserByID = (UserID, newInfo) => {
     const user =users.find(user => user.id === UserID);
+
+    if (newInfo.username !== undefined)
+        user.username = newInfo.username;
+
+    if (newInfo.age !== undefined)
+        user.age = newInfo.age;
     
-    user.username = newInfo.username;
-    user.age = newInfo.age;
     users.sort((a, b) => a.username.localeCompare(b.username));
     return user;
     
