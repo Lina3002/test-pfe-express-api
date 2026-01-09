@@ -11,16 +11,24 @@ The API was tested manually using Postman.
 
 ## Installation
 Clone the repository and install dependencies:
+```bash
 npm install
+```
 
 
 ## Run the application
 Start the server with:
+```bash
 npm start
+```
 The API will be available at:
+```bash
 http://localhost:3000
+```
 You can verify that the API is running using:
+```bash
 GET /health
+```
 
 ---
 ## Testing with Postman
