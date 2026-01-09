@@ -72,4 +72,15 @@ app.delete('/users/:id', (req, res) => {
   memory.deleteUserByID(req.params.id);
   return res.status(204).send();
 })
+
+app.get('/AllUsers', (req, res) => {
+  return res.json(memory.listAllUsers());
+})
+
+app.get('/AgeFilteredUsers/:minAge/:maxAge', (req, res) => {
+  const minAge = req.params.minAge;
+  const maxAge = req.params.maxAge;
+  return res.json(memory.listUsers_filterByAge(minAge, maxAge));
+})
+
 module.exports = app;

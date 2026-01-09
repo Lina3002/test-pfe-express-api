@@ -2,6 +2,8 @@
 const users = [{ id: 'user001', username: 'aitbrahim',age: 22},
                { id: 'user002', username: 'lina',age: 21}];
 
+users.sort((a, b) => a.username.localeCompare(b.username));
+
 const addUser = (newUser) => {
     users.push(newUser);
     users.sort((a, b) => a.username.localeCompare(b.username));
@@ -33,8 +35,12 @@ const deleteUserByID = (UserID) => {
     return;
 }
 
+const listAllUsers = () => {
+    return users;
+
+}
 const listUsers_filterByAge = (minAge, maxAge) => {
-    
+    return users.filter(user => user.age >= minAge && user.age <=maxAge);
 }
 
 module.exports = {
@@ -43,5 +49,6 @@ module.exports = {
     getUserByUsername,
     updateUserByID,
     deleteUserByID,
+    listAllUsers,
     listUsers_filterByAge
 }
