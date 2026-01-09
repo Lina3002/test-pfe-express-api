@@ -8,12 +8,12 @@ The API was tested manually using Postman.
 - Node.js (version 16 or higher)
 - npm
 - Postman
----
+
 ## Installation
 Clone the repository and install dependencies:
 npm install
 
----
+
 ## Run the application
 Start the server with:
 npm start
@@ -27,7 +27,7 @@ GET /health
 All endpoints were tested manually using Postman.
 Below are example requests and test data for each endpoint.
 
----
+
 ### 1. Create a user
 **POST /users**
 Body (JSON):
@@ -47,7 +47,7 @@ Possible responses:
 - 400 Bad Request → 'L utilisateur doit avoir au moins 18 ans (majeur).'
 - 400 Bad Request → 'Le nom de l utilisateur doit être unique.'
 - 400 Bad Request → 'L identifiant de l utilisateur doit être unique.'
----
+
 ### 2. Get user by ID
 **GET /userByID/:id**
 Example:
@@ -57,7 +57,7 @@ GET http://localhost:3000/userByID/user001
 Possible responses:
 - 200 OK → user found and returned
 - 404 Not Found → 'Utilisateur introuvable!'
----
+
 ### 3. Get user by username
 **GET /userByUsername/:username**
 Example:
@@ -67,7 +67,7 @@ GET http://localhost:3000/userByUsername/aitbrahim
 Possible responses:
 - 200 OK → user found and returned
 - 404 Not Found → 'Utilisateur introuvable!'
----
+
 ### 4. Update user by ID
 **PUT /users/:id**
 Example:
@@ -90,7 +90,7 @@ Possible responses:
 - 400 Bad Request → 'Le nom de l utilisateur doit être unique.'
 - 400 Bad Request → 'L utilisateur doit avoir au moins 18 ans (majeur).'
 - 404 Not Found → 'Utilisateur introuvable!'
----
+
 ### 5. Delete user
 **DELETE /users/:id**
 Example:
@@ -100,7 +100,7 @@ DELETE http://localhost:3000/users/user002
 Possible responses:
 - 204 No Content → user successfully deleted
 - 404 Not Found → 'Utilisateur introuvable!'
----
+
 ### 6. Get all users
 **GET /AllUsers**
 Example:
@@ -112,7 +112,7 @@ Description:
 - Users are sorted by username
 Possible responses:
 - 200 OK → list of users
----
+
 ### 7. Filter users by age
 **GET /AgeFilteredUsers/:minAge/:maxAge**
 Example:
