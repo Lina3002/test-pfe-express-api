@@ -2,6 +2,7 @@
 This project is a simple REST API built with Express.js to manage users in memory.
 Users are stored in a list sorted by username, and usernames must be unique.
 The API was tested manually using Postman.
+
 ---
 ## Requirements
 - Node.js (version 16 or higher)
@@ -11,6 +12,7 @@ The API was tested manually using Postman.
 ## Installation
 Clone the repository and install dependencies:
 npm install
+
 ---
 ## Run the application
 Start the server with:
@@ -19,10 +21,12 @@ The API will be available at:
 http://localhost:3000
 You can verify that the API is running using:
 GET /health
+
 ---
 ## Testing with Postman
 All endpoints were tested manually using Postman.
 Below are example requests and test data for each endpoint.
+
 ---
 ### 1. Create a user
 **POST /users**
