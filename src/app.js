@@ -29,10 +29,19 @@ app.post('/users', (req, res) => {
 })
 
 
-app.get('/users', (req, res) => {
-    
+app.get('/userByID/:id', (req, res) => {
+    const user = memory.getUserByID(req.params.id);
+    if (!user)
+        return res.status(404).json({ error: 'Utilisateur introuvable!' });
+    return res.json(user);
 })
 
 
+app.get('/userByUsername/:username', (req, res) => {
+    const user = memory.getUserByUsername(req.params.username);
+    if (!user)
+        return res.status(404).json({ error: 'Utilisateur introuvable!' });
+    return res.json(user);
+})
 
 module.exports = app;
