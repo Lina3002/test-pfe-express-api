@@ -27,7 +27,7 @@ http://localhost:3000
 ```
 You can verify that the API is running using:
 ```bash
-GET /health
+GET http://localhost:3000/health
 ```
 
 ---
@@ -51,10 +51,10 @@ Validations:
 - id must be unique
 - username must be unique
 Possible responses:
-- 201 Created → user successfully created
-- 400 Bad Request → 'L utilisateur doit avoir au moins 18 ans (majeur).'
-- 400 Bad Request → 'Le nom de l utilisateur doit être unique.'
-- 400 Bad Request → 'L identifiant de l utilisateur doit être unique.'
+- 201 Created -> user successfully created
+- 400 Bad Request -> 'L utilisateur doit avoir au moins 18 ans (majeur).'
+- 400 Bad Request -> 'Le nom de l utilisateur doit être unique.'
+- 400 Bad Request -> 'L identifiant de l utilisateur doit être unique.'
 
 ### 2. Get user by ID
 **GET /userByID/:id**
@@ -63,8 +63,8 @@ Example:
 GET http://localhost:3000/userByID/user001
 ```
 Possible responses:
-- 200 OK → user found and returned
-- 404 Not Found → 'Utilisateur introuvable!'
+- 200 OK -> user found and returned
+- 404 Not Found -> 'Utilisateur introuvable!'
 
 ### 3. Get user by username
 **GET /userByUsername/:username**
@@ -73,8 +73,8 @@ Example:
 GET http://localhost:3000/userByUsername/aitbrahim
 ```
 Possible responses:
-- 200 OK → user found and returned
-- 404 Not Found → 'Utilisateur introuvable!'
+- 200 OK -> user found and returned
+- 404 Not Found -> 'Utilisateur introuvable!'
 
 ### 4. Update user by ID
 **PUT /users/:id**
@@ -94,10 +94,10 @@ Validations:
 - new username must be unique (if provided)
 - age must be greater than or equal to 18 (if provided)
 Possible responses:
-- 200 OK → user successfully updated
-- 400 Bad Request → 'Le nom de l utilisateur doit être unique.'
-- 400 Bad Request → 'L utilisateur doit avoir au moins 18 ans (majeur).'
-- 404 Not Found → 'Utilisateur introuvable!'
+- 200 OK -> user successfully updated
+- 400 Bad Request -> 'Le nom de l utilisateur doit être unique.'
+- 400 Bad Request -> 'L utilisateur doit avoir au moins 18 ans (majeur).'
+- 404 Not Found -> 'Utilisateur introuvable!'
 
 ### 5. Delete user
 **DELETE /users/:id**
@@ -106,8 +106,8 @@ Example:
 DELETE http://localhost:3000/users/user002
 ```
 Possible responses:
-- 204 No Content → user successfully deleted
-- 404 Not Found → 'Utilisateur introuvable!'
+- 204 No Content -> user successfully deleted
+- 404 Not Found -> 'Utilisateur introuvable!'
 
 ### 6. Get all users
 **GET /AllUsers**
@@ -119,7 +119,7 @@ Description:
 - Returns all users stored in memory
 - Users are sorted by username
 Possible responses:
-- 200 OK → list of users
+- 200 OK -> list of users
 
 ### 7. Filter users by age
 **GET /AgeFilteredUsers/:minAge/:maxAge**
@@ -130,4 +130,4 @@ GET /AgeFilteredUsers/20/25
 Description:
 - Returns users whose age is between minAge and maxAge (inclusive)
 Possible responses:
-- 200 OK → filtered list of users
+- 200 OK -> filtered list of users
