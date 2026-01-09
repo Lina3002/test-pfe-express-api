@@ -63,4 +63,13 @@ app.put('/users/:id', (req, res) => {
     return res.json(memory.updateUserByID(id, { username, age }));
 
 })
+
+app.delete('/users/:id', (req, res) => {
+  const user = memory.getUserByID(req.params.id);
+  if(!user)
+    return res.status(404).json({ error: 'Utilisateur introuvable!' });
+
+  memory.deleteUserByID(req.params.id);
+  return res.status(204).send();
+})
 module.exports = app;

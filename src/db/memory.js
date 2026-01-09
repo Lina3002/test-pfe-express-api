@@ -28,7 +28,9 @@ const updateUserByID = (UserID, newInfo) => {
 }
 
 const deleteUserByID = (UserID) => {
-    
+    const temp = users.findIndex(user => user.id === UserID);
+    users.splice(temp, 1);
+    return;
 }
 
 const listUsers_filterByAge = (minAge, maxAge) => {
