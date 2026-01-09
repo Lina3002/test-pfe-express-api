@@ -15,11 +15,11 @@ app.post('/users', (req, res) => {
     return res.status(400).json({ error: 'L utilisateur doit avoir au moins 18 ans (majeur).'});
 
   if (memory.getUserByUsername(username)){
-    return res.status(400).json({ error: 'Le nom de l utilisateur doit etre unique.'});
+    return res.status(400).json({ error: 'Le nom de l utilisateur doit être unique.'});
   }
 
   if (memory.getUserByID(id)){
-    return res.status(400).json({ error: 'L identifiant de l utilisateur doit etre unique.'});
+    return res.status(400).json({ error: 'L identifiant de l utilisateur doit être unique.'});
   }
 
   memory.addUser({id, username, age});
@@ -44,4 +44,23 @@ app.get('/userByUsername/:username', (req, res) => {
     return res.json(user);
 })
 
+app.put('/users/:id', (req, res) => {
+    const { username, age } = req.body; 
+    const id = req.params.id;
+
+    const user = memory.getUserByID(id);
+    if(!user)
+      return res.status(404).json({ error: 'Utilisateur introuvable!' });
+
+    if(username && username !== user.username){
+      if(memory.getUserByUsername(username))
+        return res.status(400).json({ error: 'Le nom de l utilisateur doit être unique.'});
+    }
+
+    if (age && age < 18) {
+        return res.status(400).json({ error: "L utilisateur doit avoir au moins 18 ans (majeur)." });
+    }
+    return res.json(memory.updateUserByID(id, { username, age }));
+
+})
 module.exports = app;
